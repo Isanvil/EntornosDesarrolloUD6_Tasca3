@@ -17,6 +17,7 @@ public class Compte {
     public String generaIBAN(String entitat, String oficina, String dc, String compte) {
         boolean flagCheck = true;
         String ibanNum = "";
+        String ibanFin = "";
         if ((entitat + oficina + dc + compte).length() == 20) {
             if (entitat.matches("^[0-9]{4}")) {
                 ibanNum += entitat;
@@ -34,6 +35,7 @@ public class Compte {
                 flagCheck = false;
             }
             if (compte.matches("^[0-9]{10}")) {
+                ibanFin = ibanNum + compte;
                 ibanNum += compte + "142800";
             } else {
                 flagCheck = false;
@@ -46,11 +48,11 @@ public class Compte {
             BigInteger numDcSubstract = n98.subtract(numDcDivide);
             if (numDcSubstract.toString().length() < 2){
                 if(flagCheck){
-                    return "ES" + "0" + numDcSubstract + ibanNum;
+                    return "ES" + "0" + numDcSubstract + ibanFin;
                 }
             } else {
                 if(flagCheck){
-                    return "ES" + numDcSubstract + ibanNum;
+                    return "ES" + numDcSubstract + ibanFin;
                 }
             }
         }
