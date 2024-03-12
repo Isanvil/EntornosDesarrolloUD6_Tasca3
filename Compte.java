@@ -8,7 +8,7 @@ public class Compte {
     }
 
     public boolean compruebaIBAN(String iban) {
-        if (iban.matches("ES" + "^[0-9]{28}")) {
+        if (iban.matches("^ES\\d{22}$")) {
             return true;
         }
         return false;
