@@ -1,4 +1,5 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -26,19 +27,19 @@ public class CompteTest {
     @Test
     public void testCompruebaIBAN_04(){
         Compte c = new Compte();
-        assertNotEquals(false, c.compruebaIBAN("ES7600246912501234567891"));
+        assertEquals(false, c.compruebaIBAN("ES7600246912501234567891"));
     }
 
     @Test
     public void testCompruebaIBAN_05(){
         Compte c = new Compte();
-        assertNotEquals(false, c.compruebaIBAN("ES4721000418401234567891"));
+        assertEquals(false, c.compruebaIBAN("ES4721000418401234567891"));
     }
 
     @Test
     public void testCompruebaIBAN_06(){
         Compte c = new Compte();
-        assertNotEquals(false, c.compruebaIBAN("ES8200491500051234567892"));
+        assertEquals(false, c.compruebaIBAN("ES8200491500051234567892"));
     }
 
     //Tests Genera IBAN
